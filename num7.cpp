@@ -33,7 +33,7 @@ bool bear(int n){
 }
 
 int main(){
-    int x = 1042;
+    int x = 250;
     cout << bear(x) << endl;
     return 0;
 }
