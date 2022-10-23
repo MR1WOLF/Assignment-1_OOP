@@ -3,6 +3,8 @@
 #include <string>
 
 using namespace std;
+
+char special_char[] = {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '=', '_', '{', '}', '[', ']', '|', ':', ';', '<', '>', ',', '.', '?', '/', '`', '~', ' '};
 // Constructor
 BigDecimalInt::BigDecimalInt(){
     bigint = "";
