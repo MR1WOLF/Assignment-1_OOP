@@ -112,11 +112,17 @@ bool BigDecimalInt::operator<(BigDecimalInt num){
         }
     }
     else{
-        for (int i = 0; i < bigint.length(); i++){
+        if (bigint.length() > num.bigint.length()){
+            return false;
+        }
+        else if (bigint.length() < num.bigint.length()){
+            return true;
+        }
+        for (int i = 0; i <= bigint.length(); i++){
             if (bigint[i] > num.bigint[i]){
                 return false;
             }
-            else{
+            else if (bigint[i] < num.bigint[i]){
                 return true;
             }
         }
