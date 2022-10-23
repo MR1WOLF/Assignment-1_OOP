@@ -11,6 +11,26 @@ BigDecimalInt::BigDecimalInt(){
 
 // Constructor
 BigDecimalInt::BigDecimalInt(string bigint){
+    for (int i = 0; i < bigint.length(); i++){
+        if (bigint[i] == ' '){
+            cout << "Invalid input -> " << bigint << endl;
+            exit(1);
+        }
+    }
+    for (int i : {0,1}){
+        if (bigint[i] == '-' && bigint[i+1] == '+'){
+            cout << "Invalid input -> " << bigint << endl;
+            exit(1);
+        }
+    }
+    for (int i = 0; i < bigint.length(); i++){
+        for (int j = 0; j < 28; j++){
+            if (bigint[i] == special_char[j]){
+                cout << "Invalid input -> " << bigint << endl;
+                exit(1);
+            }
+        }
+    }
     this->bigint = bigint;
 }
 
