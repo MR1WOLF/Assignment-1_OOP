@@ -13,14 +13,8 @@ BigDecimalInt::BigDecimalInt(){
 
 // Constructor
 BigDecimalInt::BigDecimalInt(string bigint){
-    for (int i = 0; i < bigint.length(); i++){
-        if (bigint[i] == ' '){
-            cout << "Invalid input -> " << bigint << endl;
-            exit(1);
-        }
-    }
     for (int i : {0,1}){
-        if (bigint[i] == '-' && bigint[i+1] == '+'){
+        if (bigint[i] == '-' && bigint[i+1] == '+' || bigint[i] == '+' && bigint[i+1] == '-'){
             cout << "Invalid input -> " << bigint << endl;
             exit(1);
         }
@@ -31,6 +25,23 @@ BigDecimalInt::BigDecimalInt(string bigint){
                 cout << "Invalid input -> " << bigint << endl;
                 exit(1);
             }
+        }
+    }
+    for (int i = 1; i < bigint.length(); i++){
+        if (bigint[i] == '-' || bigint[i] == '+'){
+            cout << "Invalid input -> " << bigint << endl;
+            exit(1);
+        }
+    }
+    if (bigint[0] == '+'){
+        bigint.erase(0,1);
+    }
+    while (bigint[0] == '0' || bigint[1] == '0'){
+        if (bigint[0] == '-'){
+            bigint.erase(1,2);
+        }
+        else{
+            bigint.erase(0,1);
         }
     }
     this->bigint = bigint;
