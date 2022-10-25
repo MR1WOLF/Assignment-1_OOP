@@ -14,13 +14,26 @@ int main()
 {
     string word;
     ifstream input;
-    input.open("Hello.txt");
+    string filename;
 
+    //Enter the file name here
+    cout << "Enter the file name: ";
+    cin >> filename;
+    //If the file does not have the .txt extension, add it
+    if (filename.find(".txt") == string::npos)
+    {
+        filename += ".txt";
+    }
+    //Open the file
+    input.open(filename);
+
+    //add the words in the file to the vector
     while (!input.eof())
     {
         input >> word;
         result.push_back(word);
     }
+    //add the phishing words to the vector
     for (int i = 0; i < 30; i++)
     {
         int count = 0;
@@ -33,7 +46,7 @@ int main()
         }
         occurence.push_back(count);
     }
-
+    //add the phishing words that appear in the file to the vector
     cout << "word"
          << "    "
          << "#"
@@ -51,6 +64,7 @@ int main()
             continue;
         }
     }
+    //print the total of points
     int sum = 0;
     for (int i = 0; i < occurence.size(); i++)
     {
