@@ -1,3 +1,8 @@
+/*
+     Problem 6 in Task 2
+
+     Done By " Ali Hegazy " ID : 20210248
+*/
 #include <iostream>
 #include <cstring>
 #include<algorithm>
